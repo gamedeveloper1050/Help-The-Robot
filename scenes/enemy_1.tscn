@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://clgw38fom0c3r"]
+
+[ext_resource type="PackedScene" uid="uid://d3dfpovfjniaf" path="res://scenes/base_enemy.tscn" id="1_tcmaw"]
+[ext_resource type="Script" uid="uid://b7bx45hat42hg" path="res://scripts/enemy_1.gd" id="2_a1412"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1412"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ejytf"]
+material = SubResource("StandardMaterial3D_a1412")
+
+[node name="Base Enemy" instance=ExtResource("1_tcmaw")]
+script = ExtResource("2_a1412")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+mesh = SubResource("CapsuleMesh_ejytf")

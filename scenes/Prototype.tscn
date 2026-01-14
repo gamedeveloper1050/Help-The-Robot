@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c31b2ysrb7fxa"]
+[gd_scene load_steps=9 format=3 uid="uid://c31b2ysrb7fxa"]
 
 [ext_resource type="Texture2D" uid="uid://dhvol3wn8ajr" path="res://assets/Kenny Prototype Asset/PNG/Green/texture_10.png" id="1_lfwbl"]
 [ext_resource type="PackedScene" uid="uid://cq42xm0k5kjpl" path="res://scenes/player.tscn" id="2_lfwbl"]
+[ext_resource type="PackedScene" uid="uid://clgw38fom0c3r" path="res://scenes/enemy_1.tscn" id="3_8nl4b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s4813"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,8 +15,11 @@ sky_material = SubResource("ProceduralSkyMaterial_s4813")
 background_mode = 2
 sky = SubResource("Sky_lfwbl")
 tonemap_mode = 2
-sdfgi_enabled = true
 glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_8nl4b"]
+vertices = PackedVector3Array(-14.5, 1, -14.5, -14.5, 1, 14.5, 14.5, 1, 14.5, 14.5, 1, -14.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4813"]
 albedo_color = Color(0, 0.39607844, 0, 1)
@@ -31,10 +35,16 @@ environment = SubResource("Environment_8nl4b")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Basic Ground" type="CSGBox3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("2_lfwbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Base Enemy" parent="." instance=ExtResource("3_8nl4b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.9928622)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_8nl4b")
+
+[node name="Basic Ground" type="CSGBox3D" parent="NavigationRegion3D"]
 use_collision = true
 size = Vector3(30, 1, 30)
 material = SubResource("StandardMaterial3D_s4813")
-
-[node name="Player" parent="." instance=ExtResource("2_lfwbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
