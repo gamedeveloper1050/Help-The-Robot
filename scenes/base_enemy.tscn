@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bf3hmhi4hjmjm" path="res://scripts/base_enemy.gd" id="1_n1jr3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1jr3"]
+radius = 0.5107422
+height = 2.6522903
 
 [node name="Base Enemy" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_n1jr3")

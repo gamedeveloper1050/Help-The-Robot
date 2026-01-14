@@ -13,16 +13,20 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 	if not target:
 		return
 		
+	
+		
 	navigation_agent.target_position = target.global_position
 
-	_handle_movement()
+	_handle_movement(delta)
 	move_and_slide()
 
 
-func _handle_movement() -> void:
+func _handle_movement(delta : float) -> void:
 	if navigation_agent.is_navigation_finished():
 		velocity = Vector3.ZERO
 		return
@@ -30,4 +34,5 @@ func _handle_movement() -> void:
 	var next_position: Vector3 = navigation_agent.get_next_path_position()
 	var direction: Vector3 = (next_position - global_position).normalized()
 
+	
 	velocity = direction * current_speed

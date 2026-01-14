@@ -18,8 +18,9 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8nl4b"]
-vertices = PackedVector3Array(-14.5, 1, -14.5, -14.5, 1, 14.5, 14.5, 1, 14.5, 14.5, 1, -14.5)
+vertices = PackedVector3Array(-14.5, 0.52, -14.5, -14.5, 0.52, 14.5, 14.5, 0.52, 14.5, 14.5, 0.52, -14.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_height = 0.01
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4813"]
 albedo_color = Color(0, 0.39607844, 0, 1)
@@ -39,7 +40,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Base Enemy" parent="." instance=ExtResource("3_8nl4b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.9928622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3419354, -3.9928622)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8nl4b")
