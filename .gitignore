@@ -1,3 +1,20 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+.android/
+
+# Godot import cache
+.import/
+
+# Exported builds
+.export/
+
+# Logs & temp files
+*.log
+*.tmp
+
+# Mono / C# (ignore if not using C# is fine)
+.mono/
+
+# IDE / Editor folders
+.vscode/
+.idea/
