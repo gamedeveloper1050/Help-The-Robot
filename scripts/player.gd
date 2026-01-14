@@ -13,7 +13,8 @@ extends CharacterBody3D
 @export var sensitvity : float = 0.004
 @export var FOV_change : float = 2.5
 @export var base_FOV : float = 75.0
-
+@export var max_look_up_angle : float = 90
+@export var min_look_down_angle : float = -90
 
 var gravity : float = 9.8
 
@@ -28,13 +29,13 @@ var current_speed : float
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	$MeshInstance3D.visible = false	
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sensitvity)
 		camera.rotate_x(-event.relative.y * sensitvity)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(min_look_down_angle), deg_to_rad(max_look_up_angle))
 
 
 func _physics_process(delta):
