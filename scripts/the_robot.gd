@@ -12,7 +12,7 @@ var hover_time : float = 0.0
 var stop_distance : float = 1.5
 
 func _ready() -> void:
-	target = get_tree().get_first_node_in_group("Player") as CharacterBody3D
+	target = get_tree().get_first_node_in_group("Robot") as CharacterBody3D
 
 
 func _physics_process(delta: float) -> void:

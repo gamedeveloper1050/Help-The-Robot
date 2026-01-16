@@ -347,7 +347,7 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_6dhtg"]
 radius = 0.57833266
 
-[node name="The Robot" type="CharacterBody3D"]
+[node name="The Robot" type="CharacterBody3D" groups=["Robot"]]
 script = ExtResource("1_y82i3")
 
 [node name="Robot Model" type="Node3D" parent="."]

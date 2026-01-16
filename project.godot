@@ -23,6 +23,7 @@ Global="*res://scripts/Global.gd"
 
 Enemy=""
 Player=""
+Robot=""
 
 [input]
 
