@@ -1,10 +1,11 @@
+# Note Enemy 1 Should Be Robot But The Zombie Model is Just Place holder
 class_name Enemy1
 extends Enemy
 
 @onready var visual_pivot: Node3D = $VisualPivot
 
 func _ready() -> void:
-	target = get_tree().get_first_node_in_group("Player")
+	target = get_tree().get_first_node_in_group("Robot") as CharacterBody3D
 	super._ready()
 
 

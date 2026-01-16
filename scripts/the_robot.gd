@@ -6,13 +6,13 @@ extends CharacterBody3D
 var speed : float = 2.0
 var target: CharacterBody3D
 
-var height_offset : float = 0.6      # THIS WILL NOW WORK
-var hover_strength : float = 0.3     # THIS WILL NOW WORK
+var height_offset : float = 0.6
+var hover_strength : float = 0.3     
 var hover_time : float = 0.0
 var stop_distance : float = 1.5
 
 func _ready() -> void:
-	target = get_tree().get_first_node_in_group("Robot") as CharacterBody3D
+	target = get_tree().get_first_node_in_group("Player") as CharacterBody3D
 
 
 func _physics_process(delta: float) -> void:
