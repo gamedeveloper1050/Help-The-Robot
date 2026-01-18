@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c31b2ysrb7fxa"]
+[gd_scene load_steps=11 format=3 uid="uid://c31b2ysrb7fxa"]
 
 [ext_resource type="Texture2D" uid="uid://dhvol3wn8ajr" path="res://assets/Kenny Prototype Asset/PNG/Green/texture_10.png" id="1_lfwbl"]
 [ext_resource type="PackedScene" uid="uid://cq42xm0k5kjpl" path="res://scenes/player.tscn" id="2_lfwbl"]
 [ext_resource type="PackedScene" uid="uid://clgw38fom0c3r" path="res://scenes/enemy_1.tscn" id="4_2m8wc"]
 [ext_resource type="PackedScene" uid="uid://c6juisul57b5p" path="res://scenes/the_robot.tscn" id="4_ldc7h"]
+[ext_resource type="AudioStream" uid="uid://d21l13dmj0xkc" path="res://assets/sounds/alex-productions-epic-cinematic-trailer-elite(chosic.com).mp3" id="5_2m8wc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s4813"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,3 +54,7 @@ material = SubResource("StandardMaterial3D_s4813")
 
 [node name="Base Enemy" parent="." instance=ExtResource("4_2m8wc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2m8wc")
+autoplay = true

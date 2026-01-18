@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxs6bfagn8el0"]
+[gd_scene load_steps=18 format=3 uid="uid://cxs6bfagn8el0"]
 
 [ext_resource type="Script" uid="uid://dm14rsw0vaykr" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cortiirnb2sfr" path="res://assets/sprites/sky.png" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://cn85qajc4fwx1" path="res://assets/robot/game-music-teste-1-204326.mp3" id="3_bqqt6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
 bg_color = Color(0, 0.29411766, 0.2509804, 0.5137255)
@@ -231,9 +232,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
-[node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(570.25, 342)
-scale = Vector2(1.1226226, 0.76581264)
+[node name="Sky" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.1500001
+anchor_bottom = 1.2320001
+offset_left = -103.99999
+offset_top = -100.0
+offset_right = -369.74292
+offset_bottom = 350.66394
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3653654, 0.7145717)
 texture = ExtResource("2_ekxnf")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -254,7 +264,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vue75")
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
-tooltip_text = "hi"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 modulate = Color(1, 1, 1, 0.5294118)
@@ -271,6 +280,7 @@ horizontal_alignment = 1
 
 [node name="New Game" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "New Game"
 theme_override_styles/normal = SubResource("StyleBoxFlat_l6cm7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
@@ -278,6 +288,7 @@ text = "New Game"
 
 [node name="Contine" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Contine"
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
@@ -285,6 +296,7 @@ text = "Contine"
 
 [node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Settings"
 theme_override_styles/normal = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rtw2f")
@@ -292,6 +304,7 @@ text = "Settings"
 
 [node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Credits"
 theme_override_styles/normal = SubResource("StyleBoxFlat_oa1go")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tbmy8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
@@ -299,10 +312,19 @@ text = "Credits"
 
 [node name="Exit Game" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Exit Game"
 theme_override_styles/normal = SubResource("StyleBoxFlat_5dd4i")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lgwnu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_flqon")
 text = "Exit Game"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(624, 341)
+zoom = Vector2(0.9, 0.9)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bqqt6")
+autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Contine" to="." method="_on_contine_pressed"]
