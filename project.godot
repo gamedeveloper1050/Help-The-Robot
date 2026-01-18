@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Help The Robot"
-run/main_scene="uid://c31b2ysrb7fxa"
+run/main_scene="uid://cxs6bfagn8el0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
